@@ -100,7 +100,7 @@ const GraphView: React.FC<GraphViewProps> = ({
                     </div>
                 </div>
                 <div className="flex flex-col items-center">
-                    <h3 className="text-xl font-bold mb-4">{`${date.getMonth() + 1}월 ${date.getDate()}일 (${dayName}) 달성률`}</h3>
+                    <h3 className="text-xl font-bold mb-4">{`${date.getMonth() + 1}월 ${date.getDate()}일 (${dayName}) 일일 달성률`}</h3>
                     <DonutChart percentage={percentage} />
                 </div>
             </div>
