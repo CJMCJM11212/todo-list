@@ -1,0 +1,5 @@
+{
+  "name": "Weekly Todo List",
+  "description": "An installable PWA (Progressive Web App) weekly to-do list application that helps you organize your tasks. It features a swipeable interface to switch between a task board and a monthly progress view with a calendar and completion graphs, and works offline.",
+  "requestFramePermissions": []
+}

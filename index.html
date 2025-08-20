@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>주간 투두리스트</title>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <script>
+        window.tailwind = {
+            config: {
+                darkMode: 'class',
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        html, body, #root {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .app-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .app-view {
+            scroll-snap-align: start;
+        }
+        .day-scroll-container {
+            scroll-snap-type: y mandatory;
+            overscroll-behavior-y: contain;
+            overflow-y: scroll;
+        }
+        .day-scroll-item {
+            scroll-snap-align: start;
+            position: relative;
+            overflow: hidden;
+        }
+        .app-container::-webkit-scrollbar,
+        .day-scroll-container::-webkit-scrollbar,
+        .task-list::-webkit-scrollbar {
+            display: none;
+        }
+        .app-container, .day-scroll-container, .task-list {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .task.dragging {
+            opacity: 0.5;
+            background: #c7d2fe;
+        }
+        .dark .task.dragging {
+            background: #3730a3;
+        }
+        .donut-chart-bg {
+            fill: none;
+            stroke: #e5e7eb;
+        }
+        .dark .donut-chart-bg {
+            stroke: #334155;
+        }
+        .donut-chart-fg {
+            fill: none;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.5s ease-out, stroke 0.5s ease-out;
+        }
+        .calendar-day.today {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .calendar-day.selected {
+            box-shadow: 0 0 0 2px #4f46e5;
+        }
+        .filter-btn.active {
+            background-color: #4f46e5;
+            color: white;
+            border-color: #4f46e5;
+        }
+        .dark .filter-btn.active {
+            background-color: #6366f1;
+            border-color: #6366f1;
+        }
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 16px;
+            opacity: 0;
+            animation: confetti-fall 3s ease-in forwards;
+        }
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-10vh) rotateZ(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotateZ(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "framer-motion": "https://esm.sh/framer-motion@^11.3.1"
+  }
+}
+</script>
+<script type="module" src="/index.tsx"></script>
+</head>
+<body class="bg-gray-100 dark:bg-slate-900 text-gray-800 dark:text-slate-200 h-screen w-screen overflow-hidden">
+    <div id="root"></div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

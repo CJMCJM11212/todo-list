@@ -1,0 +1,23 @@
+{
+  "short_name": "주간 할 일",
+  "name": "주간 투두리스트",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
+  "description": "설치 가능한 PWA 주간 할 일 목록 애플리케이션입니다."
+}
