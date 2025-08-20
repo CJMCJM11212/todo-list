@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { DeletedItem } from '../types';
+import { DeletedItem } from '../types.ts';
 
 interface TrashModalProps {
     isOpen: boolean;

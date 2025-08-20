@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import { Task } from '../types';
-import { WEEK_DAY_NAMES } from '../constants';
-import Calendar from './Calendar';
-import DonutChart from './DonutChart';
+import { Task } from '../types.ts';
+import { WEEK_DAY_NAMES } from '../constants.ts';
+import Calendar from './Calendar.tsx';
+import DonutChart from './DonutChart.tsx';
 
 interface GraphViewProps {
     todayDate: Date;

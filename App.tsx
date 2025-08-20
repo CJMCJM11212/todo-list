@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Task, DailyTasks, FilterType, DeletedItem } from './types';
-import { DAY_IDS, DEFAULT_TASKS } from './constants';
-import TodoView from './components/TodoView';
-import GraphView from './components/GraphView';
+import { Task, DailyTasks, FilterType, DeletedItem } from './types.ts';
+import { DAY_IDS, DEFAULT_TASKS } from './constants.ts';
+import TodoView from './components/TodoView.tsx';
+import GraphView from './components/GraphView.tsx';
 
 const dateToYMD = (date: Date): string => {
     const d = new Date(date);

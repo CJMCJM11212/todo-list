@@ -1,9 +1,9 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { Task, FilterType } from '../types';
-import { WEEK_DAY_NAMES } from '../constants';
-import TaskItem from './TaskItem';
-import Confetti from './Confetti';
+import { Task, FilterType } from '../types.ts';
+import { WEEK_DAY_NAMES } from '../constants.ts';
+import TaskItem from './TaskItem.tsx';
+import Confetti from './Confetti.tsx';
 
 interface DayColumnProps {
     date: Date;

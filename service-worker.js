@@ -1,4 +1,4 @@
-const CACHE_NAME = 'weekly-todo-cache-v2';
+const CACHE_NAME = 'weekly-todo-cache-v3';
 const URLS_TO_CACHE = [
     '.',
     'index.html',
@@ -16,8 +16,10 @@ const URLS_TO_CACHE = [
     'components/Calendar.tsx',
     'components/DonutChart.tsx',
     'components/Confetti.tsx',
+    'components/TrashModal.tsx',
     'https://cdn.tailwindcss.com',
     'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap',
+    'https://unpkg.com/@babel/standalone/babel.min.js',
     'https://esm.sh/react@^19.1.1',
     'https://esm.sh/react-dom@^19.1.1/client'
 ];

@@ -111,6 +111,7 @@
             }
         }
     </style>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="importmap">
 {
   "imports": {
@@ -121,7 +122,7 @@
   }
 }
 </script>
-<script type="module" src="index.tsx"></script>
+<script type="text/babel" data-type="module" src="index.tsx"></script>
 </head>
 <body class="bg-gray-100 dark:bg-slate-900 text-gray-800 dark:text-slate-200 h-screen w-screen overflow-hidden">
     <div id="root"></div>

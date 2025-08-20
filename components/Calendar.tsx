@@ -1,6 +1,6 @@
 import React from 'react';
-import { Task } from '../types';
-import { WEEK_DAY_NAMES } from '../constants';
+import { Task } from '../types.ts';
+import { WEEK_DAY_NAMES } from '../constants.ts';
 
 interface CalendarProps {
     year: number;

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Task, FilterType, DeletedItem } from '../types';
-import DayColumn from './DayColumn';
-import { DAY_IDS, WEEK_DAY_NAMES } from '../constants';
-import TrashModal from './TrashModal';
+import { Task, FilterType, DeletedItem } from '../types.ts';
+import DayColumn from './DayColumn.tsx';
+import { WEEK_DAY_NAMES } from '../constants.ts';
+import TrashModal from './TrashModal.tsx';
 
 interface TodoViewProps {
     todayDate: Date;

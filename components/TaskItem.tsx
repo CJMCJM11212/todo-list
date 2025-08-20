@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { Task, FilterType } from '../types';
+import { Task, FilterType } from '../types.ts';
 
 interface TaskItemProps {
     task: Task;
