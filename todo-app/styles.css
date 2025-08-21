@@ -1,0 +1,177 @@
+:root {
+  --bg: #0b0f16;
+  --panel: #0f1624;
+  --panel-2: #121a2b;
+  --text: #e6edf3;
+  --muted: #9fb0c0;
+  --primary: #58a6ff;
+  --primary-600: #388bfd;
+  --danger: #ff6b6b;
+  --success: #3fb950;
+  --border: #263041;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg), #0c121b 60%, #0a0e16);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+}
+
+.header {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.new-todo-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
+}
+
+.new-todo-input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 0;
+}
+
+.controls {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: inline-flex;
+  gap: 6px;
+  background: #0b1220;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.filter-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.filter-btn.is-active {
+  color: var(--text);
+  border-color: var(--primary);
+  background: rgba(56, 139, 253, 0.12);
+}
+
+.primary-btn,
+.secondary-btn,
+.danger-btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.primary-btn { border-color: var(--primary); }
+.primary-btn:hover { background: rgba(56, 139, 253, 0.12); }
+.secondary-btn:hover { background: rgba(255, 255, 255, 0.05); }
+.danger-btn { border-color: var(--danger); }
+.danger-btn:hover { background: rgba(255, 107, 107, 0.12); }
+
+.list-section { margin-top: 18px; }
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.todo-item.dragging { opacity: 0.6; }
+.todo-item.drop-target-above { box-shadow: 0 -4px 0 0 var(--primary) inset; }
+.todo-item.drop-target-below { box-shadow: 0 4px 0 0 var(--primary) inset; }
+
+.checkbox { display: inline-flex; align-items: center; }
+.checkbox input { display: none; }
+.checkmark {
+  width: 20px; height: 20px; border-radius: 6px; border: 1px solid var(--border);
+  display: inline-block; position: relative; background: #0b1220;
+}
+.checkbox input:checked + .checkmark { border-color: var(--success); background: rgba(63, 185, 80, 0.18); }
+.checkbox input:checked + .checkmark::after {
+  content: ""; position: absolute; left: 5px; top: 1px; width: 6px; height: 12px; border: solid var(--success);
+  border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+
+.content { display: grid; align-items: center; }
+.view .text { word-break: break-word; }
+.todo-item.completed .view .text { color: var(--muted); text-decoration: line-through; }
+.edit { display: none; width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: #0b1220; color: var(--text); }
+.todo-item.editing .view { display: none; }
+.todo-item.editing .edit { display: block; }
+
+.item-actions { display: flex; gap: 6px; }
+.icon-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); border-radius: 8px; padding: 6px 8px; cursor: pointer; }
+.icon-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.hint { font-size: 12px; opacity: 0.8; }
+
+@media (max-width: 560px) {
+  .app { padding: 20px 14px 48px; }
+}
+
