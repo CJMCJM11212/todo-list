@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>투두리스트</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" role="application" aria-label="투두리스트 애플리케이션">
+      <header class="header">
+        <h1 class="title">투두리스트</h1>
+        <div class="input-row">
+          <input
+            id="new-todo-input"
+            class="new-todo-input"
+            type="text"
+            placeholder="할 일을 입력하고 Enter를 누르세요"
+            aria-label="새 할 일 입력"
+            autocomplete="off"
+            autofocus
+          />
+          <button id="add-todo-btn" class="primary-btn" aria-label="할 일 추가">추가</button>
+        </div>
+        <div class="controls">
+          <div class="filter-group" role="group" aria-label="필터">
+            <button class="filter-btn is-active" data-filter="all" aria-pressed="true">전체</button>
+            <button class="filter-btn" data-filter="active" aria-pressed="false">진행중</button>
+            <button class="filter-btn" data-filter="completed" aria-pressed="false">완료</button>
+          </div>
+          <div class="bulk-actions">
+            <button id="toggle-all-btn" class="secondary-btn" aria-label="모두 완료/해제">모두 토글</button>
+            <button id="clear-completed-btn" class="danger-btn" aria-label="완료 항목 모두 삭제">완료 삭제</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="list-section">
+        <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+      </section>
+
+      <footer class="footer">
+        <div class="status">
+          <span id="items-left" aria-live="polite">0개 남음</span>
+        </div>
+        <div class="hint">항목을 드래그하여 순서를 변경할 수 있어요</div>
+      </footer>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item" draggable="true">
+        <label class="checkbox">
+          <input type="checkbox" class="toggle" aria-label="완료 토글" />
+          <span class="checkmark" aria-hidden="true"></span>
+        </label>
+        <div class="content">
+          <div class="view">
+            <span class="text"></span>
+          </div>
+          <input class="edit" type="text" aria-label="항목 편집" />
+        </div>
+        <div class="item-actions">
+          <button class="icon-btn edit-btn" title="편집" aria-label="편집">✏️</button>
+          <button class="icon-btn delete-btn" title="삭제" aria-label="삭제">🗑️</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+  </html>
+
